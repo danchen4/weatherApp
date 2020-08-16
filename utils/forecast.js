@@ -11,9 +11,13 @@ const forecast = (lat, long, callback) => {
     } else if (!body.location) {
       callback('Unable to find location. Try another search', undefined);
     } else {
+      const description = body.current.weather_descriptions[0];
       const temp = body.current.temperature;
+      const feelslike = body.current.feelslike;
       const precip = body.current.precip;
-      const data = `It is ${temp} degrees out, with a ${precip}% chance of rain`;
+      const humidity = body.current.humidity;
+      const uv_index = body.current.uv_index;
+      const data = `${description} with a ${precip}% chance of rain. The current temperature is ${temp} degrees, but it feels like ${feelslike} degrees. \n Humidity is ${humidity}%.  \n UV index of ${uv_index} `;
       callback(null, data);
     }
   });

@@ -44,6 +44,9 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
   const address = req.query.address;
 
+  const URL_WS = 'http://api.weatherstack.com/current';
+  const KEY_WS = '5e62c033b3ca246599492c9eaeab39d6';
+
   if (!address) {
     return res.send({
       error: 'You must provide an address',
@@ -54,6 +57,10 @@ app.get('/weather', (req, res) => {
     if (error) {
       return res.send({ error });
     }
+
+    // const url = `${URL_WS}?access_key=${KEY_WS}&query=${lat},${long}&units=f`;
+    // console.log(url);
+
     forecast.forecast(lat, long, (error, forecastData) => {
       if (error) {
         return res.send({ error });

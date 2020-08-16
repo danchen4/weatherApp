@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  line-height: 1.7;
 }
 
 body {
@@ -27,7 +28,7 @@ header {
 header .logo {
   font-size: 2rem;
   font-weight: 600;
-  color: palevioletred;
+  color: orangered;
   margin-bottom: 2rem;
 }
 

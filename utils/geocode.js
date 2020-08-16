@@ -44,6 +44,7 @@ const geocodeAsync = async (address) => {
 
   try {
     data = await promise;
+    console.log(data);
   } catch (err) {
     console.log(err);
   }
