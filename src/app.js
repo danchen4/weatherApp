@@ -5,6 +5,9 @@ const geocode = require('../utils/geocode');
 const forecast = require('../utils/forecast');
 
 const app = express();
+// Get PORT from Heroku from env object, or 3000 if local
+const PORT = process.env.PORT || 3000;
+
 const PATH_PUBLIC_DIR = path.join(__dirname, '..', '/public');
 // create custom path for Handlbars views and partials
 const PATH_VIEWS = path.join(__dirname, '../templates/views');
@@ -94,8 +97,8 @@ app.get('*', (req, res) => {
   }); //we set up the view to render above in the app.set
 });
 
-// Starts up server and listens on specific port
+// Starts up server and listens on specific PORT (3000 for local)
 // Server started asynchrounously
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.');
+app.listen(PORT, () => {
+  console.log(`Server is up on ${PORT}`);
 });
